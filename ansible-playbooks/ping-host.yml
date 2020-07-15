@@ -1,6 +1,6 @@
 ---
-#dev
-- host: all
-  gather_facts: false
-  tasks:
-    - ping:
+- name: ping host
+  host: all
+  task:
+  - ping:
+      data: crash
