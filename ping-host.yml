@@ -1,0 +1,6 @@
+---
+- name: ping host
+  host: all
+  task:
+  - ping:
+      data: crash
