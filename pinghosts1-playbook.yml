@@ -1,6 +1,5 @@
 ---
-- name: ping host
-  host: all
-  task:
-  - ping:
-      data: crash
+- hosts: all
+  gather_facts: false
+  tasks:
+    - ping:
