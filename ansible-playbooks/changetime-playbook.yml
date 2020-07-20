@@ -5,10 +5,10 @@
   tasks:
   - name: get time zone
     shell: "timedatectl | grep \"Time zone\" | awk -F\": \" '{printf $2}' | sed 's/[[:blank:]]*$//'"
-    debug:
-        msg:"check time zone by shell command"
     register: timezone_stdout
-   
+  - name: debug
+    debug: var=timezone_stdout.stdout
+
 #   - name:  check time zone
 #     debug: "Not correct timezone"
 #     when: timezone_stdout.stdout != "Etc/UTC (UTC, +0000)"
