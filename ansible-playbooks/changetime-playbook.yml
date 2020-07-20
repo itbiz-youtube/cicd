@@ -1,0 +1,12 @@
+---
+- name: Read time zone and if is not Moskow, change it.
+- hosts: all
+  gather_facts: false
+  tasks:
+   - name: get time zone
+   - shell: "timedatectl | grep \"Time zone\" | awk -F\": \" '{printf $2}' | sed 's/[[:blank:]]*$//'"
+     register: timezone_stdout
+   
+   - name:  check time zone
+     debug: "Not correct timezone"
+     when: timezone_stdout.stdout != "Etc/UTC (UTC, +0000)"
