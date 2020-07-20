@@ -1,6 +1,6 @@
 ---
 - name: Read time zone and if is not Moskow, change it.
-- hosts: all
+  hosts: all
   gather_facts: false
   tasks:
   - name: get time zone
