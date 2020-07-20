@@ -6,9 +6,9 @@
   - name: get time zone
     shell: "timedatectl | grep \"Time zone\" | awk -F\": \" '{printf $2}' | sed 's/[[:blank:]]*$//'"
     register: timezone_stdout
-  - name: debug
+  - name: show time zone
     debug: var=timezone_stdout.stdout
-
-#   - name:  check time zone
-#     debug: "Not correct timezone"
-#     when: timezone_stdout.stdout != "Etc/UTC (UTC, +0000)"
+  - name: become a root and change time zone if not Moskow
+    shell: "timedatectl set-timezone Europe/Moscow"
+    become: yes
+    when: timezone_stdout.stdout != "Europe/Moscow (MSK, +0300)"
