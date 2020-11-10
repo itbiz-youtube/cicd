@@ -20,7 +20,7 @@
         path=/home/zebra/radiochiptune
 
     - name: make build
-      shell: "cd /home/zebra/radiochiptune && npm build"
+      shell: "cd /home/zebra/radiochiptune && npm run-script build ."
       register: npm_build
 
     - debug: msg="{{ npm_build.stdout }}"
