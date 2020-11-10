@@ -23,8 +23,7 @@
       shell: "cd /home/zebra/radiochiptune && npm build"
       register: npm_build
 
-    - name: debug message npm build
-      debug: npm_build.stdout_lines
+    - debug: msg="{{ npm_build.stdout }}"
 
     - name: make build and run server 
       shell: "cd /home/zebra/radiochiptune && serve -s build -l 4000"
