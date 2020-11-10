@@ -30,4 +30,4 @@
     - debug: msg="{{ npm_build.stdout }}"
 
     - name: make build and run server 
-      shell: "cd /home/zebra/radiochiptune && serve -s build -l 4000"
+      shell: "cd /home/zebra/radiochiptune && nohup serve -s build -l 4000 &"
