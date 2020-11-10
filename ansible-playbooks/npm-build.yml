@@ -18,6 +18,10 @@
     - name: Update npm
       npm:
         path=/home/zebra/radiochiptune
+    - name: npm install
+      shell: "cd /home/zebra/radiochiptune && npm install"
+      register: npm_install
+    - debug: msg="{{ npm_install.stdout }}"
 
     - name: make build
       shell: "cd /home/zebra/radiochiptune && npm run-script build ."
