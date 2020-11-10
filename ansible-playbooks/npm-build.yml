@@ -5,16 +5,10 @@
 
   tasks:
     - name: Show npm version
-      shell:
-        cmd: npm -v
-        args:
-         executable: /bin/bash
+      shell: "npm -v"
 
     - name: delete current folder
-      shell:
-        cmd: rm -rf /home/zebra/radiochiptune
-        args:
-         executable: /bin/bash
+      shell: "rm -rf /home/zebra/radiochiptune"
 
     - name: Clone a repo 
       git:
@@ -26,7 +20,4 @@
         path=/home/zebra/radiochiptune
 
     - name: make build and run server 
-      shell:
-        cmd: cd /home/zebra/radiochiptune && npm build && nohup serve -s build -l 4000 &
-        args:
-         executable: /bin/bash
+      shell: "cd /home/zebra/radiochiptune && npm build && nohup serve -s build -l 4000 &"
