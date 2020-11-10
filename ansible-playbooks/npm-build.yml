@@ -9,7 +9,7 @@
         cmd: npm -v
         args:
          executable: /bin/bash
-         
+
     - name: delete current folder
       shell:
         cmd: rm -rf /home/zebra/radiochiptune
@@ -19,7 +19,7 @@
     - name: Clone a repo 
       git:
         repo: https://github.com/zebra48r/radiochiptune.git
-        dest: /home/zebra
+        dest: /home/zebra/radiochiptune
     
     - name: Update npm
       npm:
