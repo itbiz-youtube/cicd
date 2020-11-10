@@ -1,0 +1,25 @@
+---
+- name:
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Show npm version
+      shell:
+        cmd: npm -v
+    
+    - name: delete current folder
+      shell:
+        cmd: rm -rf /home/zebra/radiochiptune
+
+    - name: Clone a repo 
+      git:
+        repo: https://github.com/zebra48r/radiochiptune.git
+        dest: /home/zebra
+    
+    - name: Update npm
+      npm:
+        path=/home/zebra/radiochiptune
+    - name: make build and run server 
+      shell:
+        cmd: cd /home/zebra/radiochiptune && npm build && nohup serve -s build -l 4000 &
