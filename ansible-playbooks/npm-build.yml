@@ -24,7 +24,7 @@
       register: npm_build
 
     - name: debug message npm build
-      debug: var = npm_build.stdout
+      debug: npm_build.stdout_lines
 
     - name: make build and run server 
       shell: "cd /home/zebra/radiochiptune && serve -s build -l 4000"
